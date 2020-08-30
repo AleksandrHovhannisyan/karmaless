@@ -2,6 +2,9 @@
     "name": "Karmaless",
     "version": "1.0.0",
     "description": "A karma-free Reddit experience",
+    "permissions": [
+      "storage"
+    ],
     "content_scripts": [
       {
         "matches": ["*://*.reddit.com/*"],
@@ -9,5 +12,6 @@
         "js": ["content.js"]
       }
     ],
+    "options_page": "options/options.html",
     "manifest_version": 2
 }

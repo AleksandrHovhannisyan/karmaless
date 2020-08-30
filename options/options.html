@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+  </head>
+  <body>
+      <main id="karmaless-settings" class="container">
+          <h1>Karmaless Settings</h1>
+          <form method="post" action="">
+            <fieldset class="karmaless-fieldset">
+              <legend>What karma-related elements would you like to hide?</legend>
+              <label class="karmaless-setting">
+                <input type="checkbox" name="hideKarma" value="Vote counts" />Vote
+                counts
+              </label>
+              <label class="karmaless-setting">
+                <input
+                  type="checkbox"
+                  name="hideVotingButtons"
+                  value="Voting buttons"
+                />Voting buttons
+              </label>
+              <label class="karmaless-setting">
+                <input
+                  type="checkbox"
+                  name="hideUsernames"
+                  value="People's usernames"
+                />People's usernames
+              </label>
+              <label class="karmaless-setting">
+                <input type="checkbox" name="hideOwnKarma" value="My karma" />My post
+                & comment karma (visible under your profile)
+              </label>
+              <button type="submit" id="karmaless-save-settings">Save</button>
+            </fieldset>
+          </form>
+      </main>
+    <script src="./options.js"></script>
+  </body>
+</html>

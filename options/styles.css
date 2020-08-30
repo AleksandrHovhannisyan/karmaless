@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (min-width: 25rem) {
+    html {
+        font-size: 4vw;
+    }
+}
+
+@media screen and (min-width: 31.25rem) {
+    html {
+        font-size: 1.25em;
+    }
+}
+
+p {
+    margin-bottom: calc(1em + 0.5vw);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: var(--paragraph-spacing);
+}
+
+body {
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.2rem;
+}
+
+#karmaless-settings {
+    --paragraph-spacing: 0.5em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.karmaless-setting {
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+    margin-bottom: 0.8em;
+    cursor: pointer;
+}
+
+legend {
+    font-weight: 600;
+}
+
+.karmaless-fieldset {
+    border: none;
+    padding: 1em;
+}
+
+input[type="checkbox"] {
+    margin-right: 0.4em;
+}

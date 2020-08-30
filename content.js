@@ -55,3 +55,11 @@ function purgeKarma() {
 
 hidePage();
 window.onload = purgeKarma;
+
+chrome.storage.sync.clear();
+// chrome.storage.sync.set({
+//   foo: "bar",
+// });
+chrome.storage.sync.get("foo", function (obj) {
+  console.log(obj);
+});
