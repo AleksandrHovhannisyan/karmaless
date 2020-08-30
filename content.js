@@ -42,6 +42,7 @@ function purgeKarma() {
     anchor.addEventListener("click", () => {
       hidePage();
 
+      // TODO: This is hacky. Figure out some other way to fire this. Maybe listen for DOM changes?
       setTimeout(() => {
         removeKarmaElements();
         showPage();
