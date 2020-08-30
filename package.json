@@ -2,6 +2,7 @@
   "name": "karmaless",
   "productName": "Karmaless",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "Enjoy a karma-free Reddit experience",
   "scripts": {
     "start": "./node_modules/.bin/webpack --mode=development --watch",
