@@ -1,9 +1,11 @@
 const defaultSettings = {
   hideKarma: true,
+  hideAwards: true,
   hideVotingButtons: true,
   hideUsernames: false,
   hideOwnKarma: true,
 };
+
 const settings = chrome.storage.sync;
 const checkboxes = document.querySelectorAll(
   '.karmaless-setting input[type="checkbox"'
