@@ -1,27 +1,21 @@
-// TODO: add Webpack and export this instead of copy-pasting
-const defaultSettings = {
-  hideKarma: true,
-  hideAwards: true,
-  hideVotingButtons: true,
-  hideUsernames: false,
-  hideOwnKarma: true,
-};
+import { defaultSettings } from 'constants/defaultSettings';
+import { settings } from 'constants/settings';
 
 const karmaIdentifiers = {
-  hideKarma: [".score", ".karma"],
-  hideAwards: [".awarding-link", ".awarding-show-more-link"],
-  hideVotingButtons: [".arrow"],
-  hideUsernames: [".author"],
-  hideOwnKarma: [".userkarma"],
+  hideKarma: ['.score', '.karma'],
+  hideAwards: ['.awarding-link', '.awarding-show-more-link'],
+  hideVotingButtons: ['.arrow'],
+  hideUsernames: ['.author'],
+  hideOwnKarma: ['.userkarma'],
 };
 
 function hidePage() {
-  document.documentElement.style.transition = "filter ease-in-out 0.2s";
-  document.documentElement.style.filter = "blur(8px)";
+  document.documentElement.style.transition = 'filter ease-in-out 0.2s';
+  document.documentElement.style.filter = 'blur(8px)';
 }
 
 function showPage() {
-  document.documentElement.style.filter = "none";
+  document.documentElement.style.filter = 'none';
 }
 
 // TODO: handle "comment score below threshold"s?
@@ -33,7 +27,7 @@ function purgeKarma() {
     // Complexity seems bad, but this is really O(n) since the nested loops are short and don't scale
     Object.keys(karmaIdentifiers).forEach((settingName) => {
       console.log(settingName);
-      chrome.storage.sync.get(
+      settings.get(
         { [settingName]: defaultSettings[settingName] },
         (setting) => {
           console.log(setting);
@@ -52,12 +46,12 @@ function purgeKarma() {
 
   removeKarmaElements();
 
-  const moreComments = document.querySelectorAll(".morecomments");
+  const moreComments = document.querySelectorAll('.morecomments');
 
   // TODO: optimize
   moreComments.forEach((moreComment) => {
-    const anchor = moreComment.querySelector("a");
-    anchor.addEventListener("click", () => {
+    const anchor = moreComment.querySelector('a');
+    anchor.addEventListener('click', () => {
       hidePage();
 
       // TODO: This is hacky. Figure out some other way to fire this. Maybe listen for DOM changes?

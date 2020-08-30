@@ -1,20 +1,12 @@
-// TODO: export
-const defaultSettings = {
-  hideKarma: true,
-  hideAwards: true,
-  hideVotingButtons: true,
-  hideUsernames: false,
-  hideOwnKarma: true,
-};
+import { settings } from 'constants/settings';
+import { defaultSettings } from 'constants/defaultSettings';
 
-// TODO: export
-const settings = chrome.storage.sync;
 const checkboxes = document.querySelectorAll(
   '.karmaless-setting input[type="checkbox"]'
 );
 
 function getSettingName(checkbox) {
-  return checkbox.getAttribute("name");
+  return checkbox.getAttribute('name');
 }
 
 function onSettingToggled(changeEvent) {
@@ -23,12 +15,12 @@ function onSettingToggled(changeEvent) {
 }
 
 checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener("change", onSettingToggled);
+  checkbox.addEventListener('change', onSettingToggled);
 
   const settingName = getSettingName(checkbox);
   settings.get({ [settingName]: defaultSettings[settingName] }, (result) => {
     if (result[settingName]) {
-      checkbox.setAttribute("checked", true);
+      checkbox.setAttribute('checked', true);
     }
   });
 });

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "baseUrl": "./src/",
+    "paths": {
+      "utils/*": ["utils/*"],
+      "options/*": ["options/*"],
+      "constants/*": ["constants/*"]
+    }
+  }
+}
+
+
