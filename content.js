@@ -4,7 +4,6 @@ function hidePage() {
 }
 
 function showPage() {
-  document.documentElement.style.opacity = 1;
   document.documentElement.style.filter = "none";
 }
 
