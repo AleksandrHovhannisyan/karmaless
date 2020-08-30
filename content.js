@@ -1,6 +1,15 @@
-document.documentElement.style.visibility = "hidden";
+function hidePage() {
+  document.documentElement.style.transition = "filter ease-in-out 0.2s";
+  document.documentElement.style.filter = "blur(8px)";
+}
 
-window.onload = function purgeKarma() {
+function showPage() {
+  document.documentElement.style.opacity = 1;
+  document.documentElement.style.filter = "none";
+}
+
+function purgeKarma() {
+  // TODO: make all optional except score.
   const karmaIdentifiers = [
     ".score",
     ".karma",
@@ -20,30 +29,11 @@ window.onload = function purgeKarma() {
 
   const moreComments = document.querySelectorAll(".morecomments");
 
-  // moreComments.forEach((moreComment) => {
-  //   const anchor = moreComment.querySelector("a");
-  //   const newAnchor = document.createElement("a");
-  //   newAnchor.innerText = moreLink.textContent;
-  //   newAnchor.style.fontWeight = "bold";
-  //   newAnchor.style.fontSize = "smaller";
-  //   newAnchor.style.cursor = "pointer";
-  //   newAnchor.setAttribute("href", "javascript:void(0)");
-  //   anchor.parentNode.replaceChild(newAnchor, anchor);
-  // });
-
+  // TODO: optimize
   moreComments.forEach((moreComment) => {
     const anchor = moreComment.querySelector("a");
     anchor.addEventListener("click", () => {
-      const karmaIdentifiers = [
-        ".score",
-        ".karma",
-        ".arrow",
-        ".userkarma",
-        ".awarding-link",
-        ".awarding-show-more-link",
-        ".author-tooltip__karma",
-        ".author",
-      ];
+      hidePage();
 
       setTimeout(() => {
         karmaIdentifiers.forEach((identifier) =>
@@ -51,9 +41,14 @@ window.onload = function purgeKarma() {
             element.remove();
           })
         );
+
+        showPage();
       }, 2000);
     });
   });
 
-  document.documentElement.style.visibility = "";
-};
+  showPage();
+}
+
+hidePage();
+window.onload = purgeKarma;
