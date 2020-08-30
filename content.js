@@ -24,11 +24,15 @@ function purgeKarma() {
     ".author",
   ];
 
-  karmaIdentifiers.forEach((identifier) =>
-    document.querySelectorAll(identifier).forEach((element) => {
-      element.remove();
-    })
-  );
+  const removeKarmaElements = () => {
+    karmaIdentifiers.forEach((identifier) =>
+      document.querySelectorAll(identifier).forEach((element) => {
+        element.remove();
+      })
+    );
+  };
+
+  removeKarmaElements();
 
   const moreComments = document.querySelectorAll(".morecomments");
 
@@ -39,12 +43,7 @@ function purgeKarma() {
       hidePage();
 
       setTimeout(() => {
-        karmaIdentifiers.forEach((identifier) =>
-          document.querySelectorAll(identifier).forEach((element) => {
-            element.remove();
-          })
-        );
-
+        removeKarmaElements();
         showPage();
       }, 2000);
     });
