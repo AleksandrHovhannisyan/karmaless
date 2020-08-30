@@ -1,3 +1,4 @@
+// TODO: export
 const defaultSettings = {
   hideKarma: true,
   hideAwards: true,
@@ -6,9 +7,10 @@ const defaultSettings = {
   hideOwnKarma: true,
 };
 
+// TODO: export
 const settings = chrome.storage.sync;
 const checkboxes = document.querySelectorAll(
-  '.karmaless-setting input[type="checkbox"'
+  '.karmaless-setting input[type="checkbox"]'
 );
 
 function getSettingName(checkbox) {

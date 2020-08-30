@@ -1,3 +1,20 @@
+// TODO: add Webpack and export this instead of copy-pasting
+const defaultSettings = {
+  hideKarma: true,
+  hideAwards: true,
+  hideVotingButtons: true,
+  hideUsernames: false,
+  hideOwnKarma: true,
+};
+
+const karmaIdentifiers = {
+  hideKarma: [".score", ".karma"],
+  hideAwards: [".awarding-link", ".awarding-show-more-link"],
+  hideVotingButtons: [".arrow"],
+  hideUsernames: [".author"],
+  hideOwnKarma: [".userkarma"],
+};
+
 function hidePage() {
   document.documentElement.style.transition = "filter ease-in-out 0.2s";
   document.documentElement.style.filter = "blur(8px)";
@@ -12,24 +29,25 @@ function showPage() {
 // TODO: new reddit interface is using obfuscated class names :( One more reason to prefer old reddit.
 
 function purgeKarma() {
-  // TODO: make all optional except score.
-  const karmaIdentifiers = [
-    ".score",
-    ".karma",
-    ".arrow",
-    ".userkarma",
-    ".awarding-link",
-    ".awarding-show-more-link",
-    ".author-tooltip__karma",
-    ".author",
-  ];
-
   const removeKarmaElements = () => {
-    karmaIdentifiers.forEach((identifier) =>
-      document.querySelectorAll(identifier).forEach((element) => {
-        element.remove();
-      })
-    );
+    // Complexity seems bad, but this is really O(n) since the nested loops are short and don't scale
+    Object.keys(karmaIdentifiers).forEach((settingName) => {
+      console.log(settingName);
+      chrome.storage.sync.get(
+        { [settingName]: defaultSettings[settingName] },
+        (setting) => {
+          console.log(setting);
+          if (!Object.keys(setting).length) return;
+          if (!setting[settingName]) return;
+
+          karmaIdentifiers[settingName].forEach((identifier) => {
+            document.querySelectorAll(identifier).forEach((element) => {
+              element.remove();
+            });
+          });
+        }
+      );
+    });
   };
 
   removeKarmaElements();
@@ -55,11 +73,3 @@ function purgeKarma() {
 
 hidePage();
 window.onload = purgeKarma;
-
-chrome.storage.sync.clear();
-// chrome.storage.sync.set({
-//   foo: "bar",
-// });
-chrome.storage.sync.get("foo", function (obj) {
-  console.log(obj);
-});
