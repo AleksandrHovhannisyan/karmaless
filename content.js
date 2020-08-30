@@ -8,6 +8,10 @@ function showPage() {
   document.documentElement.style.filter = "none";
 }
 
+// TODO: handle "comment score below threshold"s?
+
+// TODO: new reddit interface is using obfuscated class names :( One more reason to prefer old reddit.
+
 function purgeKarma() {
   // TODO: make all optional except score.
   const karmaIdentifiers = [
