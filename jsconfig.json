@@ -5,6 +5,7 @@
     "paths": {
       "utils/*": ["utils/*"],
       "options/*": ["options/*"],
+      "content/*": ["content/*"],
       "constants/*": ["constants/*"]
     }
   }

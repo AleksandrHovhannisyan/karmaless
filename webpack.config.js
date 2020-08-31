@@ -6,17 +6,18 @@ module.exports = {
   resolve: {
     alias: {
       options: path.resolve(__dirname, 'src/options'),
+      content: path.resolve(__dirname, 'src/content'),
       constants: path.resolve(__dirname, 'src/constants'),
       utils: path.resolve(__dirname, 'src/utils'),
     },
   },
   entry: {
-    content: path.resolve(__dirname, 'src/content.js'),
+    content: path.resolve(__dirname, 'src/content/content.js'),
     options: path.resolve(__dirname, 'src/options/options.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    filename: '[name].bundle.js',
+    filename: '[name]/[name].bundle.js',
   },
   // https://stackoverflow.com/a/49100966/5323344
   devtool: 'cheap-module-source-map',
@@ -27,10 +28,12 @@ module.exports = {
         {
           from: '**/*.html',
           context: path.resolve(__dirname, 'src', 'options'),
+          to: 'options',
         },
         {
           from: '**/*.css',
           context: path.resolve(__dirname, 'src', 'options'),
+          to: 'options',
         },
         {
           from: path.resolve(__dirname, 'manifest.json'),
