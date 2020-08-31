@@ -98,7 +98,8 @@ body {
     align-items: center;
     max-width: fit-content;
     cursor: pointer;
-  }
+    margin-left: 1em;
+}
 
 .karmaless-setting:not(:last-of-type) {
   margin-bottom: 1em;
