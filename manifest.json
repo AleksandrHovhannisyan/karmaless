@@ -9,9 +9,9 @@
       {
         "matches": ["*://*.reddit.com/*"],
         "run_at": "document_start",
-        "js": ["dist/content.bundle.js"]
+        "js": ["./content.bundle.js"]
       }
     ],
-    "options_page": "dist/options.html",
+    "options_page": "./options.html",
     "manifest_version": 2
 }
