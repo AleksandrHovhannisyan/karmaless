@@ -9,6 +9,11 @@
   --text-color-emphasis: #491300;
 }
 
+::selection {
+  background-color: var(--brand-primary-color);
+  color: var(--brand-text-color);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
