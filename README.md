@@ -1,4 +1,4 @@
-## karmaless
+<h1><img src="https://github.com/AleksandrHovhannisyan/karmaless/blob/master/icons/icon-38.png" style="float:left;" alt="The karmaless logo">karmaless</h1>
 
 > A karma-free Reddit experience
 
