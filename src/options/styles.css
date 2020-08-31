@@ -1,3 +1,13 @@
+:root {
+  --paragraph-spacing: 0.5em;
+  --brand-bg-color: #d63800;
+  --brand-text-color: white;
+  --button-bg-color: var(--brand-bg-color);
+  --button-bg-color-hover: #b63000;
+  --button-text-color: var(--brand-text-color);
+  --transition: 0.1s ease-in-out;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -41,7 +51,6 @@ body {
 }
 
 #karmaless-settings {
-    --paragraph-spacing: 0.5em;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -50,12 +59,20 @@ body {
     font-size: 1rem;
 }
 
+.karmaless-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .karmaless-setting {
     display: flex;
     align-items: center;
     max-width: fit-content;
-    margin-bottom: 0.8em;
     cursor: pointer;
+  }
+
+.karmaless-setting:not(:last-of-type) {
+  margin-bottom: 0.8em;
 }
 
 legend {
@@ -69,4 +86,32 @@ legend {
 
 input[type="checkbox"] {
     margin-right: 0.4em;
+}
+
+#karmaless-reset-settings {
+  align-self: flex-end;
+}
+
+.button {
+  border: none;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border-radius: 4px;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--button-bg-color-hover);
+}
+
+.branded {
+  font-size: 0.8em;
+  padding: 0.3em 0.3em;
+  border-radius: 50%;
+  background-color: var(--brand-bg-color);
+  color: var(--brand-text-color);
 }

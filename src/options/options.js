@@ -1,5 +1,6 @@
 import readSetting from 'utils/readSetting';
 import writeSetting from 'utils/writeSetting';
+import { defaultSettings } from 'constants/defaultSettings';
 
 const checkboxes = document.querySelectorAll(
   '.karmaless-setting input[type="checkbox"]'
@@ -32,3 +33,19 @@ checkboxes.forEach((checkbox) => {
     }
   });
 });
+
+document
+  .getElementById('karmaless-reset-settings')
+  .addEventListener('click', () => {
+    checkboxes.forEach((checkbox) => {
+      const settingName = getSettingName(checkbox);
+      const defaultValue = defaultSettings[settingName];
+      writeSetting(settingName, defaultValue);
+
+      if (defaultValue) {
+        checkbox.setAttribute('checked', true);
+      } else {
+        checkbox.removeAttribute('checked');
+      }
+    });
+  });

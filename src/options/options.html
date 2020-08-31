@@ -8,8 +8,8 @@
   </head>
   <body>
       <main id="karmaless-settings" class="container">
-          <h1>/k/armaless Settings</h1>
-          <form method="POST" action="">
+          <h1><span class="branded">/k/</span>armaless Settings</h1>
+          <form method="POST" action="" class="karmaless-form">
             <fieldset class="karmaless-fieldset">
               <legend>What karma-related elements would you like to hide?</legend>
               <label class="karmaless-setting">
@@ -36,6 +36,7 @@
                 <input type="checkbox" name="hideOwnKarma" value="My karma" />My karma
               </label>
             </fieldset>
+            <button type="reset" id="karmaless-reset-settings" class="button">Reset to defaults</button>
           </form>
       </main>
     <script src="./options.bundle.js"></script>
