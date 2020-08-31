@@ -18,6 +18,12 @@ Each time you navigate to a Reddit URL, the extension will briefly obfuscate/blu
 
 ![The Karmaless extension settings page](https://user-images.githubusercontent.com/19352442/91771426-fb3be780-ebb0-11ea-9bc1-f59ddfbb15b1.png)
 
+To access the settings page:
+
+1. Go to `chrome://extensions`.
+2. Click `Details` under the Karmaless extension.
+3. Scroll down and click `Extension options`.
+
 ### Contributing
 
 Contributions are welcome! Please submit an issue if you find a bug or would like to request a new feature.
