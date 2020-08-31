@@ -1,5 +1,4 @@
-import { defaultSettings } from 'constants/defaultSettings';
-import { settings } from 'constants/settings';
+import readSetting from 'utils/readSetting';
 
 const karmaIdentifiers = {
   hideKarma: ['.score', '.karma'],
@@ -26,21 +25,16 @@ function purgeKarma() {
   const removeKarmaElements = () => {
     // Complexity seems bad, but this is really O(n) since the nested loops are short and don't scale
     Object.keys(karmaIdentifiers).forEach((settingName) => {
-      console.log(settingName);
-      settings.get(
-        { [settingName]: defaultSettings[settingName] },
-        (setting) => {
-          console.log(setting);
-          if (!Object.keys(setting).length) return;
-          if (!setting[settingName]) return;
+      readSetting(settingName, (setting) => {
+        if (!Object.keys(setting).length) return;
+        if (!setting[settingName]) return;
 
-          karmaIdentifiers[settingName].forEach((identifier) => {
-            document.querySelectorAll(identifier).forEach((element) => {
-              element.remove();
-            });
+        karmaIdentifiers[settingName].forEach((identifier) => {
+          document.querySelectorAll(identifier).forEach((element) => {
+            element.remove();
           });
-        }
-      );
+        });
+      });
     });
   };
 
