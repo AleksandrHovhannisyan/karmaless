@@ -1,6 +1,10 @@
 {
   "name": "karmaless",
-  "productName": "Karmaless",
+  "productName": "karmaless",
+  "author": {
+    "name": "Aleksandr Hovhannisyan",
+    "url": "https://www.aleksandrhovhannisyan.com/"
+  },
   "version": "1.0.0",
   "license": "MIT",
   "description": "A karma-free Reddit experience",
