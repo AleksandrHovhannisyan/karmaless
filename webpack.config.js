@@ -1,5 +1,6 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   resolve: {
@@ -20,6 +21,7 @@ module.exports = {
   // https://stackoverflow.com/a/49100966/5323344
   devtool: 'cheap-module-source-map',
   plugins: [
+    new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [
         {
@@ -31,8 +33,7 @@ module.exports = {
           context: path.resolve(__dirname, 'src', 'options'),
         },
         {
-          from: 'manifest.json',
-          context: path.resolve(__dirname),
+          from: path.resolve(__dirname, 'manifest.json'),
         },
       ],
     }),
