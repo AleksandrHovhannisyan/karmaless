@@ -6,6 +6,7 @@
   --button-bg-color-hover: #b63000;
   --button-text-color: var(--brand-text-color);
   --transition: 0.1s ease-in-out;
+  --text-color-emphasis: #491300;
 }
 
 * {
@@ -42,6 +43,16 @@ h5,
 h6 {
     margin-bottom: 1em;
     line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+legend {
+  color: var(--text-color-emphasis);
 }
 
 body {
