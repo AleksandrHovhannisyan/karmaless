@@ -1,4 +1,3 @@
-import { settings } from 'constants/settings';
 import readSetting from 'utils/readSetting';
 import writeSetting from 'utils/writeSetting';
 
