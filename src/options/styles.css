@@ -99,10 +99,43 @@ body {
     max-width: fit-content;
     cursor: pointer;
     margin-left: 1em;
+    position: relative;
 }
 
 .karmaless-setting:not(:last-of-type) {
   margin-bottom: 1em;
+}
+
+input[type="checkbox"] {
+  margin-right: 0.8em;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 2px;
+  position: absolute;
+  left: -0.3em;
+  background-color: white;
+  color: var(--brand-text-color);
+  border: 2px solid black;
+  transition: background-color var(--transition),
+              box-shadow var(--transition);
+  text-align: center;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "\2713";
+  background-color: var(--brand-primary-color);
+}
+
+input[type="checkbox"]:focus::before,
+.karmaless-setting:hover input[type="checkbox"]::before {
+  box-shadow: 0 0 8px 0 var(--brand-primary-color);
 }
 
 legend {
@@ -112,10 +145,6 @@ legend {
 .karmaless-fieldset {
     border: none;
     padding: 1.5em 0;
-}
-
-input[type="checkbox"] {
-    margin-right: 0.4em;
 }
 
 #karmaless-reset-settings {
