@@ -17,6 +17,14 @@ function onSettingToggled(changeEvent) {
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', onSettingToggled);
 
+  // WTF, Chrome? Why are inputs toggled with space by default?
+  checkbox.addEventListener('keyup', (keyEvent) => {
+    if (keyEvent.key === 'Enter') {
+      keyEvent.target.checked = !keyEvent.target.checked;
+      onSettingToggled(keyEvent);
+    }
+  });
+
   const settingName = getSettingName(checkbox);
   readSetting(settingName, (result) => {
     if (result[settingName]) {
