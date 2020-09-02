@@ -6,15 +6,17 @@
 
 ### What Does Karmaless Do?
 
-Karmaless is a Chrome extension that purges all traces of karma from your Reddit browsing experience, allowing you to focus on what matters most: reading (and posting) content, without worrying about how people react or how well your post is received.
+Karmaless is a Chrome extension that hides karma on Reddit, allowing you to focus on what matters most: reading (and posting) content, without worrying about how people react or how well your post is received.
 
-![Reddit's old interface, without karma](https://user-images.githubusercontent.com/19352442/91773781-6ab3d600-ebb5-11ea-8966-10a56ba9ac64.png)
+<br/>
+<img src="https://user-images.githubusercontent.com/19352442/91773781-6ab3d600-ebb5-11ea-8966-10a56ba9ac64.png" alt="Reddit's old interface, without karma">
+<br/>
 
-Obviously, this extension doesn't change Reddit's platform and scoring, so posts toward the top are naturally going to be rated higher. The goal here is to eliminate your fixation on karma and to create a more healthy browsing (and posting) experience that isn't biased by karma.
+This extension is purely cosmetic; it won't change Reddit's mechanics or scoring, so posts toward the top are naturally going to be rated higher. The goal is to eliminate your fixation on karma and to create a more healthy browsing (and posting) experience that isn't biased by karma.
 
 ### How It Works
 
-Each time you navigate to a Reddit URL, the extension will briefly obfuscate/blur the page, remove any elements that have traces of karma, and then make the page visible again. You can disable any settings that you don't like under the extension's settings page:
+Each time you navigate to a Reddit URL or expand comments, the extension will briefly blur the page, remove any elements that have traces of karma according to your preferences, and then make the page visible again. You can disable any settings that you don't like under the extension's settings page:
 
 ![The Karmaless extension settings page](https://user-images.githubusercontent.com/19352442/92002057-6dc1da00-ed0d-11ea-9cf0-4de148a248bf.png)
 
