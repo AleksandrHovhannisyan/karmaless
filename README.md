@@ -6,7 +6,7 @@
 
 ### What Does Karmaless Do?
 
-Karmaless purges all traces of karma from your Reddit browsing experience, allowing you to focus on what matters most: reading (and posting) content, without worrying about how people react or how well your post is received.
+Karmaless is a Chrome extension that purges all traces of karma from your Reddit browsing experience, allowing you to focus on what matters most: reading (and posting) content, without worrying about how people react or how well your post is received.
 
 ![Reddit's old interface, without karma](https://user-images.githubusercontent.com/19352442/91773781-6ab3d600-ebb5-11ea-8966-10a56ba9ac64.png)
 
