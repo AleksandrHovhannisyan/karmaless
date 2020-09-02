@@ -16,7 +16,7 @@ Obviously, this extension doesn't change Reddit's platform and scoring, so posts
 
 Each time you navigate to a Reddit URL, the extension will briefly obfuscate/blur the page, remove any elements that have traces of karma, and then make the page visible again. You can disable any settings that you don't like under the extension's settings page:
 
-![The Karmaless extension settings page](https://user-images.githubusercontent.com/19352442/91771426-fb3be780-ebb0-11ea-9bc1-f59ddfbb15b1.png)
+![The Karmaless extension settings page](https://user-images.githubusercontent.com/19352442/92002057-6dc1da00-ed0d-11ea-9cf0-4de148a248bf.png)
 
 To access the settings page:
 
