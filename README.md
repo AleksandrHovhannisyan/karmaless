@@ -38,6 +38,12 @@ To run the extension locally:
 
 Then, just navigate to any Reddit URL on the old interface.
 
+#### Workflow
+
+Current iterations of work ("sprints") get pulled into the `dev` branch.
+
+Releases are eventually merged into `master`.
+
 #### Project Structure
 
 The `src` folder has the following hierarchy:
