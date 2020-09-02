@@ -1,9 +1,10 @@
 :root {
   --paragraph-spacing: 0.5em;
   --brand-primary-color: #d63800;
+  --brand-primary-color-dark: #491300;
   --brand-text-color: white;
   --transition: 0.1s ease-in-out;
-  --text-color-emphasis: #491300;
+  --text-color-emphasis: var(--brand-primary-color-dark);
 }
 
 ::selection {
@@ -121,7 +122,7 @@ input[type="checkbox"]::before {
   left: -0.3em;
   background-color: white;
   color: var(--brand-text-color);
-  border: 2px solid black;
+  border: 2px solid var(--brand-primary-color-dark);
   transition: background-color var(--transition),
               box-shadow var(--transition);
   text-align: center;
