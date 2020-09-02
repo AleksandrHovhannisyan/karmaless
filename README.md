@@ -38,28 +38,34 @@ To run the extension locally:
 
 Then, just navigate to any Reddit URL on the old interface.
 
-#### Code Hierarchy
+#### Project Structure
 
 The `src` folder has the following hierarchy:
 
 ```
 src
 ├── constants
-│   ├── defaultSettings.js
-│   └── settings.js
+│   └── karmaIdentifiers.js
 ├── content
 │   └── content.js
 ├── options
+│   ├── options.css
 │   ├── options.html
-│   ├── options.js
-│   └── styles.css
+│   └── options.js
+├── store
+│   ├── defaultSettings.js
+│   ├── readSetting.js
+│   ├── store.js
+│   └── writeSetting.js
 └── utils
-    ├── readSetting.js
-    ├── updateCheckbox.js
-    └── writeSetting.js
+    ├── hidePage.js
+    ├── purgeKarma.js
+    ├── showPage.js
+    └── updateCheckbox.js
 ```
 
 - `constants`: constant/enum/object exports.
 - `content`: all files related to the extension's [content script](https://developer.chrome.com/extensions/content_scripts).
 - `options`: all files related to the extension's [options page](https://developer.chrome.com/extensions/options).
+- `store`: modules related to storing and reading settings using browser extension APIs.
 - `utils`: utility functions and helpers to make things easier.
