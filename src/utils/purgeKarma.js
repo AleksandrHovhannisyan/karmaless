@@ -27,7 +27,6 @@ export default function purgeKarma() {
 
   const moreComments = document.querySelectorAll('.morecomments');
 
-  // TODO: optimize
   moreComments.forEach((moreComment) => {
     const anchor = moreComment.querySelector('a');
     anchor.addEventListener('click', () => {
