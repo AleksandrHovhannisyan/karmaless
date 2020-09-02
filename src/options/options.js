@@ -1,6 +1,6 @@
-import readSetting from 'utils/readSetting';
-import writeSetting from 'utils/writeSetting';
-import { defaultSettings } from 'constants/defaultSettings';
+import readSetting from 'store/readSetting';
+import writeSetting from 'store/writeSetting';
+import { defaultSettings } from 'store/defaultSettings';
 import updateCheckbox from 'utils/updateCheckbox';
 
 const checkboxes = document.querySelectorAll(

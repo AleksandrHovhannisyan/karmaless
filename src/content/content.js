@@ -1,4 +1,4 @@
-import readSetting from 'utils/readSetting';
+import readSetting from 'store/readSetting';
 
 const karmaIdentifiers = {
   hideKarma: ['.score', '.karma'],
