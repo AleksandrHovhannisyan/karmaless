@@ -110,6 +110,9 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   content: "";
   width: 1.2em;
   height: 1.2em;
