@@ -1,5 +1,4 @@
 import { store } from 'store/store';
-import updateCheckbox from 'utils/updateCheckbox';
 
 /**
  *
@@ -8,5 +7,5 @@ import updateCheckbox from 'utils/updateCheckbox';
  */
 export default function writeSetting(settingName, value) {
   store.set({ [settingName]: value });
-  updateCheckbox(settingName, value);
+  return new Promise((resolve) => resolve());
 }
