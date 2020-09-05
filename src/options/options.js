@@ -1,25 +1,23 @@
-import readSetting from 'utils/readSetting';
-import writeSetting from 'utils/writeSetting';
-import { defaultSettings } from 'constants/defaultSettings';
+import readSetting from 'store/readSetting';
 import updateCheckbox from 'utils/updateCheckbox';
-
-const checkboxes = document.querySelectorAll(
-  '.karmaless-setting input[type="checkbox"]'
-);
-
-function getSettingName(checkbox) {
-  return checkbox.getAttribute('name');
-}
+import checkboxes from 'constants/checkboxes';
+import resetToDefaults from 'store/resetToDefaults';
+import getName from 'utils/getName';
+import toggleSettingEnabled from 'store/toggleSettingEnabled';
 
 function onSettingToggled(changeEvent) {
-  const settingName = getSettingName(changeEvent.target);
-  writeSetting(settingName, changeEvent.target.checked);
+  const checked = changeEvent.target.checked;
+  const settingName = getName(changeEvent.target);
+
+  toggleSettingEnabled(settingName).then(() => {
+    updateCheckbox(settingName, checked);
+  });
 }
 
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', onSettingToggled);
 
-  // WTF, Chrome? Why are inputs toggled with space by default?
+  // Checkboxes are toggled with space by default to prevent form submit, so this is a workaround
   checkbox.addEventListener('keyup', (keyEvent) => {
     if (keyEvent.key === 'Enter') {
       keyEvent.target.checked = !keyEvent.target.checked;
@@ -27,19 +25,12 @@ checkboxes.forEach((checkbox) => {
     }
   });
 
-  const settingName = getSettingName(checkbox);
-
-  readSetting(settingName, (result) => {
-    updateCheckbox(settingName, result[settingName]);
+  const settingName = getName(checkbox);
+  readSetting(settingName).then((setting) => {
+    updateCheckbox(settingName, setting.enabled);
   });
 });
 
 document
   .getElementById('karmaless-reset-settings')
-  .addEventListener('click', () => {
-    checkboxes.forEach((checkbox) => {
-      const settingName = getSettingName(checkbox);
-      const defaultValue = defaultSettings[settingName];
-      writeSetting(settingName, defaultValue);
-    });
-  });
+  .addEventListener('click', resetToDefaults);

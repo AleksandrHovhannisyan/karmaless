@@ -6,7 +6,8 @@
       "utils/*": ["utils/*"],
       "options/*": ["options/*"],
       "content/*": ["content/*"],
-      "constants/*": ["constants/*"]
+      "constants/*": ["constants/*"],
+      "store/*": ["store/*"]
     }
   }
 }
