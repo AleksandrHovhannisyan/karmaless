@@ -3,13 +3,13 @@ import updateCheckbox from 'utils/updateCheckbox';
 import checkboxes from 'constants/checkboxes';
 import resetToDefaults from 'store/resetToDefaults';
 import getName from 'utils/getName';
-import toggleSetting from 'store/toggleSetting';
+import toggleSettingEnabled from 'store/toggleSettingEnabled';
 
 function onSettingToggled(changeEvent) {
   const checked = changeEvent.target.checked;
   const settingName = getName(changeEvent.target);
 
-  toggleSetting(settingName).then(() => {
+  toggleSettingEnabled(settingName).then(() => {
     updateCheckbox(settingName, checked);
   });
 }
