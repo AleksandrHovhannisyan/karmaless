@@ -18,7 +18,7 @@ This extension is purely cosmetic; it won't change Reddit's mechanics or scoring
 
 Each time you navigate to a Reddit URL or expand comments, the extension will briefly blur the page, remove any elements that have traces of karma according to your preferences, and then make the page visible again. You can disable any settings that you don't like under the extension's settings page:
 
-![The Karmaless extension settings page](https://user-images.githubusercontent.com/19352442/92002057-6dc1da00-ed0d-11ea-9cf0-4de148a248bf.png)
+![The Karmaless extension settings page](https://user-images.githubusercontent.com/19352442/92305913-99d19b00-ef59-11ea-8089-926e6cf0e95c.png)
 
 To access the settings page:
 
@@ -53,23 +53,15 @@ The `src` folder has the following hierarchy:
 ```
 src
 ├── constants
-│   └── karmaIdentifiers.js
+│   └── ...
 ├── content
-│   └── content.js
+│   └── ...
 ├── options
-│   ├── options.css
-│   ├── options.html
-│   └── options.js
+│   ├── ...
 ├── store
-│   ├── defaultSettings.js
-│   ├── readSetting.js
-│   ├── store.js
-│   └── writeSetting.js
+│   ├── ...
 └── utils
-    ├── hidePage.js
-    ├── purgeKarma.js
-    ├── showPage.js
-    └── updateCheckbox.js
+    ├── ...
 ```
 
 - `constants`: constant/enum/object exports.
