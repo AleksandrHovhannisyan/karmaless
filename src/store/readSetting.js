@@ -2,10 +2,17 @@ import { store } from 'store/store';
 import { defaultSettings } from 'store/defaultSettings';
 
 /**
- * @returns {any} the stored value of the given setting, or a default value if the setting was never written
+ * @returns {Promise} - a promise that either resolves with the value of the setting or rejects if an error occurred
  * @param {string} settingName - the name of the setting to read from the extension store
- * @param {function} callback - a callback to execute once the setting has been read from the store
  */
-export default function readSetting(settingName, callback) {
-  return store.get({ [settingName]: defaultSettings[settingName] }, callback);
+export default function readSetting(settingName) {
+  return new Promise((resolve, reject = console.log) => {
+    store.get({ [settingName]: defaultSettings[settingName] }, (settings) => {
+      if (chrome.runtime.lastError) {
+        reject(`Failed to read "${settingName}" from the karmaless settings.`);
+      } else {
+        resolve(settings[settingName]);
+      }
+    });
+  });
 }

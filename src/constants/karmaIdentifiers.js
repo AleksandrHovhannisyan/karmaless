@@ -1,9 +1,30 @@
+import { remove, click } from 'utils/karmaHandlers';
+
 const karmaIdentifiers = {
-  hideKarma: ['.score', '.karma'],
-  hideAwards: ['.awarding-link', '.awarding-show-more-link'],
-  hideVotingButtons: ['.arrow'],
-  hideUsernames: ['.author'],
-  hideOwnKarma: ['.userkarma'],
+  hideKarma: {
+    identifiers: ['.score', '.karma'],
+    onElementFound: remove,
+  },
+  hideAwards: {
+    identifiers: ['.awarding-link', '.awarding-show-more-link'],
+    onElementFound: remove,
+  },
+  hideVotingButtons: {
+    identifiers: ['.arrow'],
+    onElementFound: remove,
+  },
+  hideUsernames: {
+    identifiers: ['.author'],
+    onElementFound: remove,
+  },
+  hideOwnKarma: {
+    identifiers: ['.userkarma'],
+    onElementFound: remove,
+  },
+  toggleCollapsedComments: {
+    identifiers: ['.comment.collapsed .expand'],
+    onElementFound: click,
+  },
 };
 
 export default karmaIdentifiers;

@@ -58,21 +58,24 @@
         </h1>
         <form method="POST" action="" class="karmaless-form">
           <fieldset class="karmaless-fieldset">
-            <legend>What karma-related elements would you like to hide?</legend>
+            <legend>Select your preferred settings. All changes are automatically saved.</legend>
             <label class="karmaless-setting">
-              <input type="checkbox" name="hideKarma" />Karma/scores
+              <input type="checkbox" name="hideKarma" />Hide post and comment karma
             </label>
             <label class="karmaless-setting">
-              <input type="checkbox" name="hideAwards" />Awards
+              <input type="checkbox" name="hideAwards" />Hide awards
             </label>
             <label class="karmaless-setting">
-              <input type="checkbox" name="hideVotingButtons" />Voting buttons
+              <input type="checkbox" name="hideVotingButtons" />Hide upvote/downvote buttons
             </label>
             <label class="karmaless-setting">
-              <input type="checkbox" name="hideUsernames" />People's usernames
+              <input type="checkbox" name="hideUsernames" />Hide people's usernames
             </label>
             <label class="karmaless-setting">
-              <input type="checkbox" name="hideOwnKarma" />My karma
+              <input type="checkbox" name="hideOwnKarma" />Hide my own karma
+            </label>
+            <label class="karmaless-setting">
+              <input type="checkbox" name="toggleCollapsedComments" />Toggle collapsed comments
             </label>
           </fieldset>
           <button type="reset" id="karmaless-reset-settings" class="button hollow-button">

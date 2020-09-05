@@ -1,7 +1,20 @@
 export const defaultSettings = {
-  hideKarma: true,
-  hideAwards: true,
-  hideVotingButtons: true,
-  hideUsernames: false,
-  hideOwnKarma: true,
+  hideKarma: {
+    enabled: true,
+  },
+  hideAwards: {
+    enabled: true,
+  },
+  hideVotingButtons: {
+    enabled: true,
+  },
+  hideUsernames: {
+    enabled: false,
+  },
+  hideOwnKarma: {
+    enabled: true,
+  },
+  toggleCollapsedComments: {
+    enabled: true,
+  },
 };
