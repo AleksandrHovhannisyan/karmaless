@@ -22,6 +22,20 @@ module.exports = {
   },
   // https://stackoverflow.com/a/49100966/5323344
   devtool: 'cheap-module-source-map',
+  module: {
+    rules: [
+      {
+        test: /.js$/,
+        exclude: path.resolve(__dirname, 'node_modules'),
+        loader: 'babel-loader',
+        query: {
+          presets: [
+            '@babel/preset-env',
+          ],
+        },
+      },
+    ],
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin({

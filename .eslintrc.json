@@ -3,20 +3,27 @@
     "eslint:recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["prettier"],
+  "plugins": [
+    "prettier"
+  ],
   "env": {
     "browser": true,
-    "jasmine": true,
     "jest": true,
     "es6": true,
     "webextensions": true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "sourceType": "module"
   },
   "rules": {
-    "prettier/prettier": ["error"]
+    "prettier/prettier": [
+      "error"
+    ]
   },
-  "ignorePatterns": "webpack.config.js"
+  "ignorePatterns": [
+    "webpack.config.js",
+    "dist",
+    "babel.config.js"
+  ]
 }
