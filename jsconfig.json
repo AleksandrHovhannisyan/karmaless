@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
-    "module": "es2015",
+    "module": "commonJS",
+    "target": "es6",
     "baseUrl": "./src/",
     "paths": {
-      "utils/*": ["utils/*"],
-      "options/*": ["options/*"],
-      "content/*": ["content/*"],
-      "constants/*": ["constants/*"],
-      "store/*": ["store/*"]
-    }
-  }
+      "@utils": ["utils/index.js"],
+      "@options": ["options/index.js"],
+      "@content": ["content/index.js"],
+      "@constants": ["constants/index.js"],
+      "@store": ["store/index.js"]
+    },
+  },
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }
 
 

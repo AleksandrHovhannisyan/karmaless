@@ -5,16 +5,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   resolve: {
     alias: {
-      options: path.resolve(__dirname, 'src/options'),
-      content: path.resolve(__dirname, 'src/content'),
-      constants: path.resolve(__dirname, 'src/constants'),
-      utils: path.resolve(__dirname, 'src/utils'),
-      store: path.resolve(__dirname, 'src/store'),
+      "@options": path.resolve(__dirname, 'src/options'),
+      "@content": path.resolve(__dirname, 'src/content'),
+      "@constants": path.resolve(__dirname, 'src/constants'),
+      "@utils": path.resolve(__dirname, 'src/utils'),
+      "@store": path.resolve(__dirname, 'src/store'),
     },
   },
   entry: {
-    content: path.resolve(__dirname, 'src/content/content.js'),
-    options: path.resolve(__dirname, 'src/options/options.js'),
+    content: path.resolve(__dirname, 'src/content/index.js'),
+    options: path.resolve(__dirname, 'src/options/index.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist/'),
