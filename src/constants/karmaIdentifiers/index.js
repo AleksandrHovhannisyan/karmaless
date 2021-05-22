@@ -1,4 +1,4 @@
-import { remove, click } from 'utils/karmaHandlers';
+import { click, remove } from '@utils';
 
 const karmaIdentifiers = {
   hideKarma: {

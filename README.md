@@ -30,6 +30,11 @@ To access the settings page:
 
 Contributions are welcome! Please submit an issue if you find a bug or would like to request a new feature.
 
+#### Installing
+
+1. Clone this repo.
+2. Install dependencies (`yarn`).
+
 #### Running the Extension
 
 To run the extension locally:
@@ -42,30 +47,4 @@ Then, just navigate to any Reddit URL on the old interface.
 
 #### Workflow
 
-Current iterations of work ("sprints") get pulled into the `dev` branch.
-
-Releases are eventually merged into `master`.
-
-#### Project Structure
-
-The `src` folder has the following hierarchy:
-
-```
-src
-├── constants
-│   └── ...
-├── content
-│   └── ...
-├── options
-│   ├── ...
-├── store
-│   ├── ...
-└── utils
-    ├── ...
-```
-
-- `constants`: constant/enum/object exports.
-- `content`: all files related to the extension's [content script](https://developer.chrome.com/extensions/content_scripts).
-- `options`: all files related to the extension's [options page](https://developer.chrome.com/extensions/options).
-- `store`: modules related to storing and reading settings using browser extension APIs.
-- `utils`: utility functions and helpers to make things easier.
+Feature branches get pulled into `dev`. Releases are eventually merged into `master`.
