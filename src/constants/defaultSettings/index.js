@@ -1,4 +1,4 @@
-export const defaultSettings = {
+const defaultSettings = {
   hideKarma: {
     enabled: true,
   },
@@ -18,3 +18,5 @@ export const defaultSettings = {
     enabled: true,
   },
 };
+
+export default defaultSettings;
