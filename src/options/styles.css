@@ -1,41 +1,25 @@
 :root {
   --paragraph-spacing: 0.5em;
-  --brand-primary-color: #d63800;
-  --brand-primary-color-dark: #491300;
-  --brand-text-color: white;
+  --color-primary: #d63800;
+  --color-primary-dark: #491300;
+  --color-text: white;
+  --color-text-emphasis: var(--color-primary-dark);
   --transition: 0.1s ease-in-out;
-  --text-color-emphasis: var(--brand-primary-color-dark);
-}
-
-::selection {
-  background-color: var(--brand-primary-color);
-  color: var(--brand-text-color);
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media screen and (min-width: 25rem) {
-    html {
-        font-size: 4vw;
-    }
-}
-
-@media screen and (min-width: 31.25rem) {
-    html {
-        font-size: 1.25em;
-    }
-}
-
-p {
-    margin-bottom: calc(1em + 0.5vw);
+input,
+button {
+  font: inherit;
 }
 
 a {
-  color: var(--brand-primary-color);
+  color: var(--color-primary);
 }
 
 h1,
@@ -44,8 +28,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin-bottom: 1em;
-    line-height: 1.4;
+  line-height: 1.4;
 }
 
 h1,
@@ -55,143 +38,101 @@ h4,
 h5,
 h6,
 legend {
-  color: var(--text-color-emphasis);
+  color: var(--color-text-emphasis);
+}
+
+html,
+body,
+main {
+  height: 100%;
 }
 
 body {
-    height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 1.6;
+  font-family: system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  accent-color: var(--color-primary);
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1.2rem;
-}
-
-#karmaless-settings {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-}
-
-.content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex: 1 0 0;
+  max-width: 60ch;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.karmaless-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.karmaless-setting {
-    display: flex;
-    align-items: center;
-    max-width: fit-content;
-    cursor: pointer;
-    margin-left: 1em;
-    position: relative;
-}
-
-.karmaless-setting:not(:last-of-type) {
+h1 {
+  font-size: 2rem;
   margin-bottom: 1em;
 }
 
-input[type="checkbox"] {
-  margin-right: 0.8em;
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
   display: flex;
   align-items: center;
+  gap: 0.8rem;
+  max-width: fit-content;
+  padding-inline-start: 1rem;
 }
 
-input[type="checkbox"]::before {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  content: "";
-  width: 1.2em;
-  height: 1.2em;
-  border-radius: 2px;
-  position: absolute;
-  left: -0.3em;
-  background-color: white;
-  color: var(--brand-text-color);
-  border: 2px solid var(--brand-primary-color-dark);
-  transition: background-color var(--transition),
-              box-shadow var(--transition);
-  text-align: center;
-  box-shadow: 0 0 0 0 transparent;
-}
-
-input[type="checkbox"]:checked::before {
-  content: "\2713";
-  background-color: var(--brand-primary-color);
-}
-
-input[type="checkbox"]:focus::before,
-.karmaless-setting:hover input[type="checkbox"]::before {
-  box-shadow: 0 0 8px 0 var(--brand-primary-color);
+input[type='checkbox'] {
+  width: 1rem;
+  aspect-ratio: 1;
 }
 
 legend {
-    font-weight: 600;
-    max-width: 40ch;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
-.karmaless-fieldset {
-    border: none;
-    padding: 1.5em 0;
+fieldset {
+  border: none;
+  border-color: var(--color-primary-dark);
+  padding: 1rem 0;
+  display: grid;
+  gap: 1rem;
 }
 
-#karmaless-reset-settings {
-  align-self: flex-end;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-
-.hollow-button {
-  border: solid 2px;
-  color: var(--brand-primary-color);
-  background: transparent;
-  box-shadow: 0 transparent;
-  transition: box-shadow var(--transition);
-}
-
-.hollow-button:focus,
-.hollow-button:hover,
-.hollow-button:active {
-  box-shadow: 0 0 4px 0 var(--brand-primary-color);
-}
-
-.solid-button {
-  background-color: var(--brand-primary-color);
-  color: var(--brand-text-color);
-  border: solid 2px var(--brand-primary-color);
-  transition: background-color var(--transition);
+button[type='reset'] {
+  align-self: end;
+  font-size: smaller;
 }
 
 .button {
   border-radius: 4px;
-  font-size: 1em;
   padding: 0.8em 1em;
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 
+.button.hollow {
+  border: solid 2px;
+  color: var(--color-primary);
+  background: transparent;
+}
+
+.solid-button {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: solid 2px var(--color-primary);
+  transition: background-color var(--transition);
+}
+
 .logo {
+  vertical-align: middle;
   font-size: 0.6em;
   padding: 0.5em 0.5em;
   margin: 0.1em;
   border-radius: 50%;
-  background-color: var(--brand-primary-color);
-  color: var(--brand-text-color);
+  background-color: var(--color-primary);
+  color: var(--color-text);
 }
 
 .github-corner {
@@ -203,19 +144,15 @@ legend {
 }
 
 .github-corner svg {
-  fill: var(--brand-primary-color);
+  fill: var(--color-primary);
   border: 0;
-  color: var(--brand-text-color);
-}
-
-#page-footer {
-  text-align: center;
-  padding: 1em;
+  color: var(--color-text);
 }
 
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }
+
 @keyframes octocat-wave {
   0%,
   100% {
@@ -234,6 +171,7 @@ legend {
   .github-corner:hover .octo-arm {
     animation: none;
   }
+
   .github-corner .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
   }

@@ -1,21 +1,21 @@
 const defaultSettings = {
   hideKarma: {
-    enabled: true,
+    isEnabled: true,
   },
   hideAwards: {
-    enabled: true,
+    isEnabled: true,
   },
   hideVotingButtons: {
-    enabled: true,
+    isEnabled: true,
   },
   hideUsernames: {
-    enabled: false,
+    isEnabled: false,
   },
   hideOwnKarma: {
-    enabled: true,
+    isEnabled: true,
   },
   toggleCollapsedComments: {
-    enabled: true,
+    isEnabled: true,
   },
 };
 

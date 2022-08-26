@@ -4,11 +4,11 @@
     "target": "es6",
     "baseUrl": "./src/",
     "paths": {
-      "@utils": ["utils/index.js"],
-      "@options": ["options/index.js"],
-      "@content": ["content/index.js"],
-      "@constants": ["constants/index.js"],
-      "@store": ["store/index.js"]
+      "@utils": ["utils/utils.js"],
+      "@options": ["options/options.js"],
+      "@content": ["content/content.js"],
+      "@constants": ["constants/constants.js"],
+      "@store": ["store/store.js"]
     },
   },
   "exclude": [
@@ -16,5 +16,3 @@
     "node_modules"
   ]
 }
-
-
