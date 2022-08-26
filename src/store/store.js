@@ -34,12 +34,17 @@ export class Storage {
   };
 
   /** Reads the value associated with `settingName` from storage. https://developer.chrome.com/docs/extensions/reference/storage/#method-StorageArea-get
-   * @param {string} key - the name of the setting whose value should be read from storage
+   * @param {string|Record<string, unknown>} keys - the name of the setting whose value should be read from storage
    */
-  get = async (key) => {
-    // When passing in an object for get, the API uses the values in that object as defaults and the keys for lookups. If there are no values in storage, it returns the defaults. That way, we don't have to do any fallback logic ourselves.
-    const settings = await this.store.get(this.defaults[key]);
-    return settings[key];
+  get = async (keys) => {
+    // If we're requesting a one-time read of a single key-value pair from storage
+    if (typeof keys === 'string') {
+      // When passing in an object for get, the API uses the values in that object as defaults and the keys for lookups. If there are no values in storage, it returns the defaults. That way, we don't have to do any fallback logic ourselves.
+      const settings = await this.store.get(this.defaults[keys]);
+      return settings[keys];
+    }
+    // Reading multiple settings in one go using an object
+    return this.store.get(keys);
   };
 
   /**

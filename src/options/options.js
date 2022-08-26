@@ -1,3 +1,4 @@
+import { defaultSettings } from '@constants';
 import store from '@store';
 
 const checkboxes = Array.from(
@@ -9,22 +10,15 @@ const checkboxes = Array.from(
  */
 const getSettingName = (el) => el.getAttribute('name');
 
-/**
- * @param {HTMLInputElement} checkbox
- */
-const syncCheckboxState = async (checkbox) => {
-  const settingName = getSettingName(checkbox);
-  try {
-    // TODO: just read all settings in advance in one go and then update each checkbox. See here for docs on how to retrieve multiple values from the Chrome storage API: https://developer.chrome.com/docs/extensions/reference/storage/#method-StorageArea-get
-    const { isEnabled } = await store.get(settingName);
-    checkbox.toggleAttribute('checked', isEnabled);
-  } catch (e) {
-    console.error(e);
-  }
-};
-
 const syncAllCheckboxes = async () => {
-  await Promise.all(checkboxes.map((checkbox) => syncCheckboxState(checkbox)));
+  // Read all settings in one go for performance
+  const settings = await store.get(defaultSettings);
+  // Then just loop over the checkboxes and update each one to be its corresponding value read from storage
+  checkboxes.forEach((checkbox) => {
+    const key = getSettingName(checkbox);
+    const setting = settings[key];
+    checkbox.toggleAttribute('checked', setting.isEnabled);
+  });
 };
 
 // Listen for changes and update the store
