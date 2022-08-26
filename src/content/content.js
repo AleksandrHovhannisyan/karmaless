@@ -2,9 +2,7 @@ import { karmaActions } from '@constants';
 import store from '@store';
 import { hidePage, showPage } from '@utils';
 
-hidePage();
-
-window.onload = function purgeKarma() {
+function purgeKarma() {
   Object.entries(karmaActions).forEach(async ([settingName, config]) => {
     const { selectors, onElementFound } = config;
     const setting = await store.get(settingName);
@@ -16,6 +14,7 @@ window.onload = function purgeKarma() {
     document.querySelectorAll(selector).forEach(onElementFound);
   });
 
+  // When a user clicks on a "Load more comments" link, hide the page and run through the purge again
   document.querySelectorAll('.morecomments a').forEach((comment) => {
     comment.addEventListener('click', () => {
       hidePage();
@@ -25,4 +24,8 @@ window.onload = function purgeKarma() {
   });
 
   showPage();
-};
+}
+
+// In the future, it may be better to show some sort of splash screen or loader instead of just blurring the page
+hidePage();
+window.onload = purgeKarma;
