@@ -1,5 +1,6 @@
 import { click, remove } from '@utils';
 
+// TODO: combine with defaultSettings into one config
 const karmaIdentifiers = {
   hideKarma: {
     identifiers: ['.score', '.karma'],

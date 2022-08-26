@@ -5,15 +5,14 @@ import { hidePage, showPage } from '@utils';
 hidePage();
 
 window.onload = function purgeKarma() {
-  Object.keys(karmaIdentifiers).forEach((settingName) => {
-    store.readSetting(settingName).then((setting) => {
-      if (!Object.keys(setting).length) return;
-      if (!setting.enabled) return;
+  Object.keys(karmaIdentifiers).forEach(async (settingName) => {
+    const setting = await store.get(settingName);
+    if (!setting || !Object.keys(setting).length) return;
+    if (!setting.isEnabled) return;
 
-      const { identifiers, onElementFound } = karmaIdentifiers[settingName];
-      identifiers.forEach((identifier) => {
-        document.querySelectorAll(identifier).forEach(onElementFound);
-      });
+    const { identifiers, onElementFound } = karmaIdentifiers[settingName];
+    identifiers.forEach((identifier) => {
+      document.querySelectorAll(identifier).forEach(onElementFound);
     });
   });
 
