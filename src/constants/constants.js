@@ -1,2 +1,2 @@
 export { default as defaultSettings } from './defaultSettings';
-export { default as karmaIdentifiers } from './karmaIdentifiers';
+export { default as karmaActions } from './karmaActions';

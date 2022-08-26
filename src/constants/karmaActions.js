@@ -1,31 +1,30 @@
 import { click, remove } from '@utils';
 
-// TODO: combine with defaultSettings into one config
-const karmaIdentifiers = {
+const karmaActions = {
   hideKarma: {
-    identifiers: ['.score', '.karma'],
+    selectors: ['.score', '.karma'],
     onElementFound: remove,
   },
   hideAwards: {
-    identifiers: ['.awarding-link', '.awarding-show-more-link'],
+    selectors: ['.awarding-link', '.awarding-show-more-link'],
     onElementFound: remove,
   },
   hideVotingButtons: {
-    identifiers: ['.arrow'],
+    selectors: ['.arrow'],
     onElementFound: remove,
   },
   hideUsernames: {
-    identifiers: ['.author'],
+    selectors: ['.author'],
     onElementFound: remove,
   },
   hideOwnKarma: {
-    identifiers: ['.userkarma'],
+    selectors: ['.userkarma'],
     onElementFound: remove,
   },
   toggleCollapsedComments: {
-    identifiers: ['.comment.collapsed .expand'],
+    selectors: ['.comment.collapsed .expand'],
     onElementFound: click,
   },
 };
 
-export default karmaIdentifiers;
+export default karmaActions;
