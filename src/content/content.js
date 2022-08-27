@@ -6,8 +6,7 @@ function purgeKarma() {
   Object.entries(karmaActions).forEach(async ([settingName, config]) => {
     const { selectors, onElementFound } = config;
     const setting = await store.get(settingName);
-    if (!setting || !Object.keys(setting).length) return;
-    if (!setting.isEnabled) return;
+    if (!setting?.isEnabled) return;
 
     // Join all of the individual selectors into one for improved performance
     const selector = selectors.join(', ');
