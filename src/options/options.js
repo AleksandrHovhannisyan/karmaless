@@ -1,4 +1,3 @@
-import { defaultSettings } from '@constants';
 import store from '@store';
 
 const checkboxes = Array.from(
@@ -12,7 +11,7 @@ const getSettingName = (el) => el.getAttribute('name');
 
 const syncAllCheckboxes = async () => {
   // Read all settings in one go for performance
-  const settings = await store.get(defaultSettings);
+  const settings = await store.getAll();
   // Then just loop over the checkboxes and update each one to be its corresponding value read from storage
   checkboxes.forEach((checkbox) => {
     const key = getSettingName(checkbox);
