@@ -34,17 +34,11 @@ export class Storage {
     this.store.clear();
   };
 
-  /** Reads the value associated with `keys` from storage. https://developer.chrome.com/docs/extensions/reference/storage/#method-StorageArea-get
-   * @param {string|Record<string, unknown>} keys - the name of the setting whose value should be read from storage
+  /** Reads the value associated with `key` from storage. https://developer.chrome.com/docs/extensions/reference/storage/#method-StorageArea-get
+   * @param {string} key - the name of the setting whose value should be read
    */
-  get = async (keys) => {
-    // If we're requesting a one-time read of a single key-value pair from storage
-    if (typeof keys === 'string') {
-      const settings = await this.getAll();
-      return settings[keys];
-    }
-    // Reading multiple settings in one go using an object
-    return this.store.get(keys);
+  get = async (key) => {
+    return this.store.get(this.defaults[key]);
   };
 
   /**

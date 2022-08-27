@@ -2,10 +2,13 @@ import { karmaActions } from '@constants';
 import store from '@store';
 import { hidePage, showPage } from '@utils';
 
-function purgeKarma() {
-  Object.entries(karmaActions).forEach(async ([settingName, config]) => {
+async function purgeKarma() {
+  // Read all settings ahead of time. The returned object will look like { [settingName]: { isEnabled: true, ...otherValues } }.
+  const settings = await store.getAll();
+  // Loop over the config, check if the setting is enabled, and, if so, query all relevant DOM nodes and run their handlers
+  Object.entries(karmaActions).forEach(([settingName, config]) => {
     const { selectors, onElementFound } = config;
-    const setting = await store.get(settingName);
+    const setting = settings[settingName];
     if (!setting?.isEnabled) return;
 
     // Join all of the individual selectors into one for improved performance
