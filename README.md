@@ -44,7 +44,3 @@ To run the extension locally:
 3. Select the `dist/` folder.
 
 Then, just navigate to any Reddit URL on the old interface.
-
-#### Workflow
-
-Feature branches get pulled into `dev`. Releases are eventually merged into `master`.
